@@ -58,7 +58,7 @@ fun TelaLogin(
             Text("Entrar")
         }
         ElevatedButton(modifier = Modifier.fillMaxWidth(), onClick = {
-            scope.launch(Dispatchers.IO) {
+            scope.launch(Dispatchers.Main) {
                 onSignupClick()
             }
         }) {

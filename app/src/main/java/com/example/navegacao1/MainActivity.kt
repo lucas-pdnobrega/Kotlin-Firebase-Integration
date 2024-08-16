@@ -46,6 +46,9 @@ class MainActivity : ComponentActivity() {
                             TelaCadastro(modifier = Modifier.padding(innerPadding),
                                 onSignupClick = {
                                     navController.navigate("login")
+                                },
+                                onSigninClick = {
+                                    navController.navigate("login")
                                 }
                             )
                         }

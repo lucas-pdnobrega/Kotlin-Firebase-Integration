@@ -26,7 +26,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 @Composable
-fun TelaCadastro(modifier: Modifier = Modifier, onSignupClick: () -> Unit) {
+fun TelaCadastro(
+    modifier: Modifier = Modifier,
+    onSignupClick: () -> Unit,
+    onSigninClick: () -> Unit) {
     val usuarioDAO: UsuarioDAO = UsuarioDAO()
     val context = LocalContext.current
     var scope = rememberCoroutineScope()
@@ -51,6 +54,13 @@ fun TelaCadastro(modifier: Modifier = Modifier, onSignupClick: () -> Unit) {
             }
         }) {
             Text("Cadastrar")
+        }
+        ElevatedButton(modifier = Modifier.fillMaxWidth(), onClick = {
+            scope.launch(Dispatchers.Main) {
+                onSigninClick()
+            }
+        }) {
+            Text("Voltar")
         }
 
         mensagemErro?.let {
